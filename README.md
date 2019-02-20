@@ -1,224 +1,68 @@
-# React Material
-React project using Material-UI React library.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Part 1: Create a Login Component
-1.Download the repository, install and run the project to verify it works:
+## Available Scripts
 
+In the project directory, you can run:
 
-```javascript
-npm install
-npm start
-```
+### `npm start`
 
-2. Add the Material-UI dependencies to the package.json file and re-run the install module command.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```javascript
-   "@material-ui/core": "^3.0.1",
-    "@material-ui/icons": "^3.0.1",
-```
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-3. Create a new folder called component and add a Login.js and Login.css files with the following code:
+### `npm test`
 
-```javascript
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import LockIcon from '@material-ui/icons/LockOutlined';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import './Login.css'
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-export class Login extends React.Component{
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    render(){
-        return (
-            <React.Fragment>
-                <CssBaseline />
-                <main className="layout">
-                    <Paper className="paper">
-                        <Avatar className="avatar">
-                            <LockIcon />
-                        </Avatar>
-                        <Typography variant="headline">Sign in</Typography>
-                        <form className="form">
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <Input id="email" name="email" autoComplete="email" autoFocus />
-                            </FormControl>
-                            <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Password</InputLabel>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                />
-                            </FormControl>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="raised"
-                                color="primary"
-                                className="submit"
-                            >
-                                Sign in
-                            </Button>
-                        </form>
-                    </Paper>
-                </main>
-            </React.Fragment>
-        );
-    }
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-}
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```css
-.layout {
-    width: 60%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-.paper {
-    margin-top: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
+## Learn More
 
-.avatar {
-    margin: 10px;
-    background: floralwhite;
-}
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-.form {
-    width: 100%;
-    margin-top: 30px;
-}
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-.submit {
-    marginTop: 20px;
-}
+### Code Splitting
 
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-4. Add the Login component to the App.js render method to test your login component.
+### Analyzing the Bundle Size
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-## Part 2: Enable App Navigation 
+### Making a Progressive Web App
 
-1. Refactor your App.js: 
-    * Create a new file called TodoApp and extract all the Todo logic into this file.
-    * Change the Todo components to use react Material components: Button, TextField, Card and DatePickers.
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-2. Add the react-router-dom component to your package.json file and install it:
+### Advanced Configuration
 
-```javascript
-   "react-router-dom": "^4.3.1"   
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-```javascript
-   npm install
-```
-        
-3. Create a constant for each View (Login and TodoApp) in the App.js file:
+### Deployment
 
-```javascript
-  const LoginView = () => (
-      <Login/>
-  );
-  
-  const About = () => (
-      <div>
-          <NavBar/>
-          <CoursesList/>
-      </div>
-  );
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-4. Import the following Components in the App.js file:
+### `npm run build` fails to minify
 
-```javascript
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-```
-
-5. Add the following code to render method on the App.js:
-
-```javascript
-
-    render() {
-
-        return (
-            <Router>
-                <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <h1 className="App-title">TODO React App</h1>
-                    </header>
-
-                    <br/>
-                    <br/>
-
-                    <ul>
-                        <li><Link to="/">Login</Link></li>
-                        <li><Link to="/todo">Todo</Link></li>
-                    </ul>
-
-                    <div>
-                        <Route exact path="/" component={LoginView}/>
-                        <Route path="/todo" component={TodoView}/>
-                    </div>
-                </div>
-            </Router>
-        );
-    }
-```
-
-6. Run the application and test that the navigation works.
-
-7. Read the React Route Training documentation and understand about the BrowserRouter Component:
-https://reacttraining.com/react-router/web/example/basic
-
-
-8. Add a state *isLoggedIn* to the App.js Component to know when what view to display.
-
-9. Set the default value of *isLoggedIn* to false and then add an if condition inside the render method that renders the correct view.
-
-
-## Part 3: Local Storage
-
-In order to create Web applications that work offline we can use the local storage. You can use it directly on your js files as follows:
-
-```javascript
-
-//Save data
-localStorage.setItem('key', value);
-
-//Read data
-localStorage.getItem('key');
-
-````
-  
-1. Use the local storage to store a default user (username and password).
-
-2. Add the click handler to Sign In button in order to verify that the user exists (use the one saved on the *localStorage*)
-
-3. Once the user is authenticated successfully then store the *isLoggedIn* on the storage and add the logic to make sure this value is set to state everytime the application is loaded.
-This will prevent the user authentication every time!
-
-4. Run the application and then stop the server and verify the data is persisted.
-
-Tip: You can use the Google Chrome Developer tools under the Application tab to explore the Local Storage. 
-   
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

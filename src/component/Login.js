@@ -12,6 +12,19 @@ import './Login.css'
 
 
 export class Login extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state={email:"", password: ""};
+            this.handleSubmit = this.handleSubmit.bind(this);
+
+        }
+
+        handleSubmit(e) {
+            if(localStorage.getItem('email') === this.state.email && localStorage.getItem('password') === this.state.password)
+                localStorage.setItem('isLoggedIn', "true");
+            this.setState({email:"", password: ""});
+        }
+
 
     render(){
         return (
@@ -23,19 +36,32 @@ export class Login extends React.Component{
                             <LockIcon />
                         </Avatar>
                         <Typography variant="headline">Sign in</Typography>
-                        <form className="form">
+
+                        <form className="form" onSubmit={this.handleSubmit}>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <Input id="email" name="email" autoComplete="email" autoFocus />
+                                <Input
+                                   id="email"
+                                   name="email"
+                                   autoComplete="email"
+                                   autoFocus
+                                   value = {this.state.email}
+                                   onChange={event => this.setState({email:event.target.value})}
+                                />
+
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">Password</InputLabel>
                                 <Input
-                                    name="password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
+                                   id="password"
+                                   name="password"
+                                   id="password"
+                                   autoComplete="current-password"
+                                   value = {this.state.password}
+                                   onChange={event => this.setState({password:event.target.value})}
                                 />
+
+
                             </FormControl>
                             <Button
                                 type="submit"
